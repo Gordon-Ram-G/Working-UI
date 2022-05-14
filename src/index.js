@@ -1,5 +1,4 @@
-import './css/index.css';
+import App from './js/App.js';
 
-const $h1 = document.querySelector('h1');
-
-$h1.innerText = 'Vanilla JS boilerplate';
+const $App = document.querySelector('.App');
+new App($App);

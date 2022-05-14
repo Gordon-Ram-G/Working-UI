@@ -33,5 +33,8 @@
   "lint-staged": {
     "*.js": "eslint --cache",
     "*.{js,css,md,html,json}": "prettier --write"
+  },
+  "dependencies": {
+    "docs-searchbar.js": "^2.1.1"
   }
 }
