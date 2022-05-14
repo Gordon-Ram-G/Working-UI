@@ -33,7 +33,6 @@ export default function App($app)
                                 isLoading : false,
                                 drawSearchBar : true
                             })
-                        console.log(result.properties.nickname,result.properties.profile_image);
                     },
                     fail: function(err) 
                     {

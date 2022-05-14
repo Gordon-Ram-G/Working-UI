@@ -17,7 +17,10 @@ export default function Search({$app, initialState, onSubmit})
         {   
             if(this.$target.innerHTML === "")  
             {
-                this.$target.innerHTML = `<form id="search-form"><input type="text" placeholder="검색어를 입력하세요" required></input></form>`
+                this.$target.innerHTML = `<form id="search-form">
+                                        <input type="text" placeholder="검색어를 입력하세요" required></input>
+                                        <input type="submit" value="검색"/>
+                                        </form>`
                 this.$target.addEventListener('submit', this.onSubmit);
                 this.$target.style.display = 'block';
             }

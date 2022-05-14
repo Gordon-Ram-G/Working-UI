@@ -20,11 +20,13 @@ html, body {
 }
 
 .search form{
+  /*display: flex;*/
   width: 100%;
   height: 100%;
 }
 
 .search input{
+  display: inline;
   font-size: 50px;
   font-family: 'Jalnan';
   border: 3px solid black;
