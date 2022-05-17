@@ -33,6 +33,8 @@ export default function App($app)
                                 isLoading : false,
                                 drawSearchBar : true
                             })
+                      // 이부분에서 로컬스토리지에 사용자 값을 저장해도 되지 않을까?
+                      console.log(result);
                     },
                     fail: function(err) 
                     {
