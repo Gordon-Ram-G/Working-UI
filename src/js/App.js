@@ -8,12 +8,15 @@ export default function App($app)
         isLogined : false,
         isLoading : false,
         drawSearchBar : false,
+        drawList : false,
+        drawNavigationBar:false,
+        drawHamBurgerBtn : false,
     };
-    
+
     // 초기 카카오 로그인 관련
     const kakaoLogin = new Login({
         $app,
-        initialState : false,
+        initialState : this.state.isLogined,
         onClick: async () => {
             try
             {
@@ -23,23 +26,36 @@ export default function App($app)
                 });
 
                 await Kakao.init('76b58bf2c5c73f0af2a5e08b9600c4d5');
-                Kakao.Auth.login({
-                    success: (result) => 
-                    {
-                        this.setState(
-                            {
+                
+                return new Promise((resolve,reject) => {
+                    Kakao.Auth.login({
+                        success: (authObj) => {
+                            Kakao.API.request({
+                              url: '/v2/user/me',
+                              success: function(result) {
+                                // 이부분에서 로컬스토리지에 사용자 값을 저장해도 되지 않을까?
+                                console.log(result.properties.nickname);
+                                console.log(result.properties.profile_image);
+                                localStorage.setItem('nickname',result.properties.nickname);
+                                localStorage.setItem('profile_image',result.properties.profile_image);
+                            },
+                              fail: function(error) {
+                                alert('Access Token으로 사용자 정보 가져오기 실패!', error.message);
+                              },
+                            })
+                            this.setState({
                                 ...this.state,
                                 isLogined : true,
                                 isLoading : false,
-                                drawSearchBar : true
+                                drawSearchBar : true,
+                                drawList:true,
+                                drawNavigationBar:true,
                             })
-                      // 이부분에서 로컬스토리지에 사용자 값을 저장해도 되지 않을까?
-                      console.log(result);
-                    },
-                    fail: function(err) 
-                    {
-                            alert(JSON.stringify(err))
-                    },
+                          },
+                          fail: function(error) {
+                            alert('Login 실패!', error.message);
+                          },
+                    })
                 })
             }
             catch(e)
@@ -49,7 +65,7 @@ export default function App($app)
         }
     });
 
-    // 검색창
+    // 검색창 => 버튼으로 변경 
     const searchBar = new Search({
         $app, 
         initialState : this.state.drawSearchBar,
@@ -57,6 +73,9 @@ export default function App($app)
             event.preventDefault();
         }
     });
+
+    // 하단 네비게이션 바 
+    const 
 
     // loading 창 
     const loading = new Loading({
@@ -75,11 +94,24 @@ export default function App($app)
     // 초기 page init
     const init = () => {
         try
-        {    
-            this.setState({
-                ...this.state,
-                isLoading: true,
-              })
+        {   
+            if(localStorage.getItem('nickname') !== null)
+            {
+                this.setState({
+                    ...this.state,
+                    isLogined : true,
+                    drawSearchBar: true,
+                    drawList:true,
+                    drawNavigationBar:true,
+                    drawHamBurgerBtn:true,
+                })
+            }
+            else{
+                this.setState({
+                    ...this.state,
+                    isLoading: true,
+                })
+            } 
         }
         catch(e)
         {
