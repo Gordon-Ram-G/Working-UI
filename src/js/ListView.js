@@ -11,6 +11,8 @@ export default function ListView($app, initialState)
     }
 
     this.render = (node) => {
-       // this.$target.innerHTML
+       this.$target.innerHTML = node.map((item, index) => {`<li data-index=${index}>${item}</li>`}).join('');
+
     }
+    this.render();
 }
