@@ -1,6 +1,7 @@
 import Login from "./login.js";
 import Loading from "./loading.js";
 import Search from "./Search.js";
+import NavigationBar from "./NavigationBar.js";
 
 export default function App($app)
 {
@@ -75,7 +76,10 @@ export default function App($app)
     });
 
     // 하단 네비게이션 바 
-    const 
+    const navBar = new NavigationBar({
+        $app, 
+        initialState: false
+    })
 
     // loading 창 
     const loading = new Loading({
@@ -89,6 +93,7 @@ export default function App($app)
         kakaoLogin.setState(this.state.isLogined);
         loading.setState(this.state.isLoading);
         searchBar.setState(this.state.drawSearchBar);
+        navBar.setState(this.state.drawNavigationBar);
     }
 
     // 초기 page init

@@ -9,19 +9,30 @@ export default function NavigationBar({$app, initialState}){
     }
 
     this.render = () => {
-        this.$target.innerHTML = 
-        `<div id=home_btn>
-            <img src=''>
-        </div>
-        <div id=ingredient_btn>
-            <img src=''>
-        </div>
-        <div id=profile_btn>
-            <img src=''>
-        </div>
-        <div id=setting_btn>
-            <img src=''>
-        </div>
-        `
+        if(this.state)
+        {
+            this.$target.innerHTML = `<div id=home_btn>
+                                        <img src=''>
+                                        <div>홈</div>
+                                    </div>
+                                    
+                                    <div id=ingredient_btn>
+                                        <img src=''>
+                                        <div>재료등록</div>
+                                    </div>
+
+                                    <div id=profile_btn>
+                                        <img src=''>
+                                        <div>프로필</div>
+                                    </div>
+
+                                    <div id=setting_btn>
+                                        <img src=''>
+                                        <div>설정</div>
+                                    </div>
+                                    `
+        }
     }
+    
+    this.render();
 }
