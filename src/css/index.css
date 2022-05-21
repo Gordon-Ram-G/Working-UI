@@ -14,6 +14,19 @@ html, body {
   height: 100%;
 }
 
+.listItems{
+  position: absolute;
+  width: 100%;
+  height: 55%;
+  z-index: 0;
+  top:35%;
+  bottom: 10%;
+  left: 0;
+  right: 0;
+  margin: 0;
+  background: white;
+}
+
 .search{
   width : 100%;
   height: 10%;
@@ -49,4 +62,121 @@ html, body {
   left: 50%;
   top: 50%;
   transform: translate(-50%, -50%);
+}
+
+.tops{
+  left: 0;
+  right: 0;
+  display: flex;
+  position: fixed;
+  width: 100%;
+  height: 15%;
+  flex-direction: row;
+  justify-content: space-around;
+  background-color: #FF5C5C;
+  top: 0;
+  color: white;
+}
+
+.tops div{
+  padding-top: 7%;
+  text-align: center;
+  font-size: 50px;
+}
+
+.userTops{
+  display: flex;
+  position: fixed;
+  width: 100%;
+  height: 10%;
+  top:10%;
+  left: 0;
+  right: 0;
+  font-size: 50px;
+  justify-content: space-around;
+  background-color: #FF5C5C;
+  color: white;
+  padding-top: 10%;
+}
+
+.userTops #user_info{
+  height:50%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+}
+
+.userTops #user_id b{
+  font-size: 100px;
+  margin-bottom: 10px;
+}
+
+.userTops #order_btn{
+  height:50%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.userTops #order_btn button{
+  width: 100%;
+  background-color:#FFF5EE;;
+  font-size: 60px;
+  font-family: 'Jalnan';
+  border-radius: 50px;
+  border: 1px solid white;
+  color: #FF5C5C;
+  padding:10px;
+  display: flex;
+  align-items: center;
+}
+
+.userTops #order_btn button span{
+  margin-left: 10px;
+}
+
+.userIngred{
+  display: flex;
+  position: fixed;
+  width: 100%;
+  height: 10%;
+  top:20%;
+  left: 0;
+  right: 0;
+  font-size: 50px;
+  justify-content: center;
+  background-color: #FF5C5C;
+  color: white;
+  border-radius: 0px 0px 140px 140px;
+  padding-top: 10%;
+}
+
+.userIngred #Main_Ingred{
+  display: flex;
+  align-items: center;
+  width:60%;
+  height: 80%;
+  background: #FF8484;
+  border-radius: 50px;
+}
+
+.bottoms{
+  left: 0;
+  right: 0;
+  display: flex;
+  position: fixed;
+  width: 100%;
+  height: 10%;
+  flex-direction: row;
+  justify-content: space-around;
+  background-color: #FF5C5C;
+  top: 90%;
+  border-radius: 50px 50px 0px 0px;
+}
+
+.bottoms div{
+  padding-top: 3%;
+  text-align: center;
+  font-size: 50px;
+  color:white;
 }

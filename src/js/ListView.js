@@ -1,7 +1,7 @@
-export default function ListView($app, initialState)
+export default function ListView({$app, initialState})
 {
     this.state=initialState;
-    this.$target = document.createElement('ul');
+    this.$target = document.createElement('div');
     this.$target.className = 'listItems';
     $app.appendChild(this.$target);
 
@@ -11,7 +11,7 @@ export default function ListView($app, initialState)
     }
 
     this.render = (node) => {
-       this.$target.innerHTML = node.map((item, index) => {`<li data-index=${index}>${item}</li>`}).join('');
+       //this.$target.innerHTML = node.map((item, index) => {`<li data-index=${index}>${item}</li>`}).join('');
 
     }
     this.render();

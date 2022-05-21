@@ -2,6 +2,8 @@ import Login from "./login.js";
 import Loading from "./loading.js";
 import Search from "./Search.js";
 import NavigationBar from "./NavigationBar.js";
+import ListView from "./ListView.js";
+import TopBar from "./TopBar.js";
 
 export default function App($app)
 {
@@ -10,6 +12,7 @@ export default function App($app)
         isLoading : false,
         drawSearchBar : false,
         drawList : false,
+        drawTopBar : false,
         drawNavigationBar:false,
         drawHamBurgerBtn : false,
     };
@@ -48,7 +51,8 @@ export default function App($app)
                                 ...this.state,
                                 isLogined : true,
                                 isLoading : false,
-                                drawSearchBar : true,
+                                //drawSearchBar : true,
+                                drawTopBar:true,
                                 drawList:true,
                                 drawNavigationBar:true,
                             })
@@ -75,6 +79,17 @@ export default function App($app)
         }
     });
 
+    const listItems = new ListView({
+        $app, 
+        initialState:this.state.drawList
+    });
+
+    // 상단 바
+    const topbar = new TopBar({
+        $app,
+        initialState: this.state.drawTopBar
+    })
+
     // 하단 네비게이션 바 
     const navBar = new NavigationBar({
         $app, 
@@ -94,6 +109,8 @@ export default function App($app)
         loading.setState(this.state.isLoading);
         searchBar.setState(this.state.drawSearchBar);
         navBar.setState(this.state.drawNavigationBar);
+        listItems.setState(this.state.drawList);
+        topbar.setState(this.state.drawTopBar);
     }
 
     // 초기 page init
@@ -105,7 +122,8 @@ export default function App($app)
                 this.setState({
                     ...this.state,
                     isLogined : true,
-                    drawSearchBar: true,
+                    //drawSearchBar: true,
+                    drawTopBar:true,
                     drawList:true,
                     drawNavigationBar:true,
                     drawHamBurgerBtn:true,
