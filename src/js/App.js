@@ -81,7 +81,7 @@ export default function App($app)
 
     const listItems = new ListView({
         $app, 
-        initialState:this.state.drawList
+        initialState:this.state.drawList,
     });
 
     // 상단 바
