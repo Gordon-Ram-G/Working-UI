@@ -12,7 +12,10 @@ export default function NavigationBar({$app, initialState}){
     this.render = () => {
         if(this.state)
         {
-            this.$target.innerHTML = `<div id=home_btn>
+            if(this.$target.innerHTML === '')
+            {
+                this.$target.style.display = '';
+                this.$target.innerHTML = `<div id=home_btn>
                                         <img src='./src/assets/uil_home-alt.png' style="height:120px;width:120px;">
                                         <div>홈</div>
                                     </div>
@@ -32,6 +35,11 @@ export default function NavigationBar({$app, initialState}){
                                         <div>설정</div>
                                     </div>
                                     `
+            }else{
+                this.$target.style.display = '';
+            }
+        }else{
+            this.$target.style.display = 'none';
         }
     }
     

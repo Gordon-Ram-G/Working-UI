@@ -13,7 +13,18 @@ export default function ListView({$app, initialState,draw})
     }
 
     this.render = () => {
-       this.$target.innerHTML = this.node.map((item, index) => `<li data-index=${index}>${item}</li>`).join('');
+        if(this.state){
+            if(this.$target.innerHTML === '')
+            {
+                this.$target.style.display = '';
+                this.$target.innerHTML = this.node.map((item, index) => `<li data-index=${index}>${item}</li>`).join('');
+            }
+            else{
+                this.$target.style.display = '';
+            }
+        }else{
+            this.$target.style.display = 'none';
+        }
     }
     this.render();
 }

@@ -33,20 +33,26 @@ export default function App($app)
                 
                 return new Promise((resolve,reject) => {
                     Kakao.Auth.login({
-                        success: (authObj) => {
+                        success: (authObj) => resolve(authObj),
+                        fail: function(error) {
+                            alert('Login 실패!', error.message);
+                        },
+                    })
+                }).then((authObj) => {
+                    {
+                        new Promise((r1,r2) => {
                             Kakao.API.request({
-                              url: '/v2/user/me',
-                              success: function(result) {
-                                // 이부분에서 로컬스토리지에 사용자 값을 저장해도 되지 않을까?
-                                console.log(result.properties.nickname);
-                                console.log(result.properties.profile_image);
-                                localStorage.setItem('nickname',result.properties.nickname);
-                                localStorage.setItem('profile_image',result.properties.profile_image);
-                            },
-                              fail: function(error) {
-                                alert('Access Token으로 사용자 정보 가져오기 실패!', error.message);
-                              },
-                            })
+                                url: '/v2/user/me',
+                                success: (result) => r1(result),
+                                fail: function(error) {
+                                  alert('Access Token으로 사용자 정보 가져오기 실패!', error.message);
+                                },
+                              })
+                        }).then((result) => {
+                            console.log(result.properties.nickname);
+                            console.log(result.properties.profile_image);
+                            localStorage.setItem('nickname',result.properties.nickname);
+                            localStorage.setItem('profile_image',result.properties.profile_image);
                             this.setState({
                                 ...this.state,
                                 isLogined : true,
@@ -56,19 +62,20 @@ export default function App($app)
                                 drawList:true,
                                 drawNavigationBar:true,
                             })
-                          },
-                          fail: function(error) {
-                            alert('Login 실패!', error.message);
-                          },
-                    })
-                })
+                        });
+                      }
+                });
             }
             catch(e)
             {
                 console.log(e.message)
             }
+            finally{
+                
+            }
         }
     });
+
 
     // 검색창 => 버튼으로 변경 
     const searchBar = new Search({
@@ -81,7 +88,7 @@ export default function App($app)
 
     const listItems = new ListView({
         $app, 
-        initialState:this.state.drawList,
+        initialState: this.state.drawList,
     });
 
     // 상단 바
@@ -128,6 +135,7 @@ export default function App($app)
                     drawNavigationBar:true,
                     drawHamBurgerBtn:true,
                 })
+                console.log('머야')
             }
             else{
                 this.setState({

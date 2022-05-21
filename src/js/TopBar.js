@@ -19,7 +19,12 @@ export default function TopBar({$app, initialState})
     this.render = () => {
         if(this.state)
         {
-            this.$target.innerHTML = `<div id="burger_btn">
+            if(this.$target.innerHTML === '')
+            {
+                this.$target.style.display = '';
+                this.$userTarget.style.display = '';
+                this.$userIngred.style.display = '';
+                this.$target.innerHTML = `<div id="burger_btn">
                                         <img src='./src/assets/uil_align-justify.png' style="height:120px;width:120px;">
                                     </div>
                                     
@@ -54,6 +59,16 @@ export default function TopBar({$app, initialState})
                                             </div>
                                         </div>
                                         `;
+            }
+            else{
+                this.$target.style.display = '';
+                this.$userTarget.style.display = '';
+                this.$userIngred.style.display = '';
+            }
+        }else{
+            this.$target.style.display = 'none';
+            this.$userTarget.style.display = 'none';
+            this.$userIngred.style.display = 'none';
         }
     }
     
