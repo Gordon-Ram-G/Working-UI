@@ -3,195 +3,197 @@
   src : url("font/Jalnan.ttf") format("truetype");
 }
 
-html, body {
-  width: 100%;
-  height: 100%;
-  font-family: 'Jalnan';
-}
+@media (max-width: 1440px) {
+  html, body {
+    width: 100%;
+    height: 100%;
+    font-family: 'Jalnan';
+  }
 
-.App{
-  width: 100%;
-  height: 100%;
-}
+  .App{
+    width: 100%;
+    height: 100%;
+  }
 
-.listItems{
-  display: flex;
-  flex-direction: column;
-  position: absolute;
-  overflow-y:auto;
-  width: 100%;
-  height: 55%;
-  z-index: 0;
-  top:35%;
-  bottom: 10%;
-  left: 0;
-  right: 0;
-  margin: 0;
-  background: white;
-  font-size: 100px;
-  align-items: center;
-}
+  .listItems{
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    overflow-y:auto;
+    width: 100%;
+    height: 55%;
+    z-index: 0;
+    top:35%;
+    bottom: 10%;
+    left: 0;
+    right: 0;
+    margin: 0;
+    background: white;
+    font-size: 100px;
+    align-items: center;
+  }
 
-.listItems li{
-  list-style: none;
-  width: 70%;
-  height: 300px;
-  margin: 50px;
-  background: whitesmoke;
-  box-shadow: 0px 5px 14px rgba(0, 0, 0, 0.5);
-  border-radius: 50px;
-}
+  .listItems li{
+    list-style: none;
+    width: 70%;
+    height: 300px;
+    margin: 50px;
+    background: whitesmoke;
+    box-shadow: 0px 5px 14px rgba(0, 0, 0, 0.5);
+    border-radius: 50px;
+  }
 
-.search{
-  width : 100%;
-  height: 10%;
-}
+  .search{
+    width : 100%;
+    height: 10%;
+  }
 
-.search form{
-  /*display: flex;*/
-  width: 100%;
-  height: 100%;
-}
+  .search form{
+    /*display: flex;*/
+    width: 100%;
+    height: 100%;
+  }
 
-.search input{
-  display: inline;
-  font-size: 50px;
-  font-family: 'Jalnan';
-  border: 3px solid black;
-  border-radius: 15px;
-  padding : 15px;
-}
+  .search input{
+    display: inline;
+    font-size: 50px;
+    font-family: 'Jalnan';
+    border: 3px solid black;
+    border-radius: 15px;
+    padding : 15px;
+  }
 
-.Modal {
-  z-index: 1;
-  width: 100%;
-  height: 100%;
-  position: fixed;
-  left: 0;
-  top: 0;
-  background-color: rgba(0,0,0,0.3);
-}
+  .Modal {
+    z-index: 1;
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    left: 0;
+    top: 0;
+    background-color: rgba(0,0,0,0.3);
+  }
 
-.Modal > div {
-  position: fixed;
-  left: 50%;
-  top: 50%;
-  transform: translate(-50%, -50%);
-}
+  .Modal > div {
+    position: fixed;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+  }
 
-.tops{
-  left: 0;
-  right: 0;
-  display: flex;
-  position: fixed;
-  width: 100%;
-  height: 15%;
-  flex-direction: row;
-  justify-content: space-around;
-  background-color: #FF5C5C;
-  top: 0;
-  color: white;
-}
+  .tops{
+    left: 0;
+    right: 0;
+    display: flex;
+    position: fixed;
+    width: 100%;
+    height: 15%;
+    flex-direction: row;
+    justify-content: space-around;
+    background-color: #FF5C5C;
+    top: 0;
+    color: white;
+  }
 
-.tops div{
-  padding-top: 7%;
-  text-align: center;
-  font-size: 50px;
-}
+  .tops div{
+    padding-top: 7%;
+    text-align: center;
+    font-size: 50px;
+  }
 
-.userTops{
-  display: flex;
-  position: fixed;
-  width: 100%;
-  height: 10%;
-  top:10%;
-  left: 0;
-  right: 0;
-  font-size: 50px;
-  justify-content: space-around;
-  background-color: #FF5C5C;
-  color: white;
-  padding-top: 10%;
-}
+  .userTops{
+    display: flex;
+    position: fixed;
+    width: 100%;
+    height: 10%;
+    top:10%;
+    left: 0;
+    right: 0;
+    font-size: 50px;
+    justify-content: space-around;
+    background-color: #FF5C5C;
+    color: white;
+    padding-top: 10%;
+  }
 
-.userTops #user_info{
-  height:50%;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-evenly;
-}
+  .userTops #user_info{
+    height:50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+  }
 
-.userTops #user_id b{
-  font-size: 100px;
-  margin-bottom: 10px;
-}
+  .userTops #user_id b{
+    font-size: 100px;
+    margin-bottom: 10px;
+  }
 
-.userTops #order_btn{
-  height:50%;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-}
+  .userTops #order_btn{
+    height:50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
 
-.userTops #order_btn button{
-  width: 100%;
-  background-color:#FFF5EE;;
-  font-size: 60px;
-  font-family: 'Jalnan';
-  border-radius: 50px;
-  border: 1px solid white;
-  color: #FF5C5C;
-  padding:10px;
-  display: flex;
-  align-items: center;
-}
+  .userTops #order_btn button{
+    width: 100%;
+    background-color:#FFF5EE;;
+    font-size: 60px;
+    font-family: 'Jalnan';
+    border-radius: 50px;
+    border: 1px solid white;
+    color: #FF5C5C;
+    padding:10px;
+    display: flex;
+    align-items: center;
+  }
 
-.userTops #order_btn button span{
-  margin-left: 10px;
-}
+  .userTops #order_btn button span{
+    margin-left: 10px;
+  }
 
-.userIngred{
-  display: flex;
-  position: fixed;
-  width: 100%;
-  height: 10%;
-  top:20%;
-  left: 0;
-  right: 0;
-  font-size: 50px;
-  justify-content: center;
-  background-color: #FF5C5C;
-  color: white;
-  border-radius: 0px 0px 140px 140px;
-  padding-top: 10%;
-}
+  .userIngred{
+    display: flex;
+    position: fixed;
+    width: 100%;
+    height: 10%;
+    top:20%;
+    left: 0;
+    right: 0;
+    font-size: 50px;
+    justify-content: center;
+    background-color: #FF5C5C;
+    color: white;
+    border-radius: 0px 0px 140px 140px;
+    padding-top: 10%;
+  }
 
-.userIngred #Main_Ingred{
-  display: flex;
-  align-items: center;
-  width:60%;
-  height: 80%;
-  background: #FF8484;
-  border-radius: 50px;
-}
+  .userIngred #Main_Ingred{
+    display: flex;
+    align-items: center;
+    width:60%;
+    height: 80%;
+    background: #FF8484;
+    border-radius: 50px;
+  }
 
-.bottoms{
-  left: 0;
-  right: 0;
-  display: flex;
-  position: fixed;
-  width: 100%;
-  height: 10%;
-  flex-direction: row;
-  justify-content: space-around;
-  background-color: #FF5C5C;
-  top: 90%;
-  border-radius: 50px 50px 0px 0px;
-}
+  .bottoms{
+    left: 0;
+    right: 0;
+    display: flex;
+    position: fixed;
+    width: 100%;
+    height: 10%;
+    flex-direction: row;
+    justify-content: space-around;
+    background-color: #FF5C5C;
+    top: 90%;
+    border-radius: 50px 50px 0px 0px;
+  }
 
-.bottoms div{
-  padding-top: 3%;
-  text-align: center;
-  font-size: 50px;
-  color:white;
+  .bottoms div{
+    padding-top: 3%;
+    text-align: center;
+    font-size: 50px;
+    color:white;
+  }
 }
