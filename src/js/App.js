@@ -14,7 +14,6 @@ export default function App($app)
         drawList : false,
         drawTopBar : false,
         drawNavigationBar:false,
-        drawHamBurgerBtn : false,
     };
 
     // 초기 카카오 로그인 관련
@@ -133,7 +132,6 @@ export default function App($app)
                     drawTopBar:true,
                     drawList:true,
                     drawNavigationBar:true,
-                    drawHamBurgerBtn:true,
                 })
                 console.log('머야')
             }
