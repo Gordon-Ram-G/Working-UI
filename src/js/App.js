@@ -85,16 +85,16 @@ export default function App($app)
         }
     });
 
-    const listItems = new ListView({
-        $app, 
-        initialState: this.state.drawList,
-    });
-
     // 상단 바
     const topbar = new TopBar({
         $app,
         initialState: this.state.drawTopBar
-    })
+    });
+  
+    const listItems = new ListView({
+        $app, 
+        initialState: this.state.drawList,
+    });
 
     // 하단 네비게이션 바 
     const navBar = new NavigationBar({
