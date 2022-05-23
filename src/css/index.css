@@ -4,9 +4,10 @@
 }
 
 html, body {
-    width: 411px;
-    height: 869px;
+    width: 100%;
+    height: 100%;
     font-family: 'Jalnan';
+    background-color: beige;
   }
 /*
 
